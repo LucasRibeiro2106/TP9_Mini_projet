@@ -3,15 +3,16 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+//Création de la classe Vol
 public class Vol {
     private String numeroVol;
     private String origine;
     private String destination;
     private String dateHeureDepart;
     private String dateHeureArrivee;
-    private String etat; // "planifié", "en cours", "terminé", "annulé"
+    private String etat;
     private Pilote pilote;
-    private List<PersonnelCabine> equipeCabine;
+    private List<PersonnelCabine> PersonnelCabine;
     private Avion avion;
     private List<Reservation> reservations;
     private Aeroport aeroportDepart;
@@ -25,7 +26,7 @@ public class Vol {
         this.dateHeureDepart = dateHeureDepart;
         this.dateHeureArrivee = dateHeureArrivee;
         this.etat = "planifié";
-        this.equipeCabine = new ArrayList<>();
+        this.PersonnelCabine = new ArrayList<>();
         this.reservations = new ArrayList<>();
     }
 
@@ -50,7 +51,7 @@ public class Vol {
     public List<Passager> ListingPassager() {
         List<Passager> passagers = new ArrayList<>();
         for (Reservation res : reservations) {
-            if ("confirmée".equals(res.getStatut())) {
+            if (res.getStatut().equals("confirmée")) {
                 passagers.add(res.getPassager());
             }
         }
@@ -59,7 +60,7 @@ public class Vol {
 
     public void affecterEquipage(Pilote pilote, List<PersonnelCabine> equipeCabine) {
         this.pilote = pilote;
-        this.equipeCabine = new ArrayList<>(equipeCabine);
+        this.PersonnelCabine = new ArrayList<>(equipeCabine);
     }
 
     public boolean affecterAvion(Avion avion) {
@@ -95,7 +96,7 @@ public class Vol {
         this.etat = etat;
     }
 
-    // Getters / setters
+    // Méthode d'accès
     public String getNumeroVol() { return numeroVol; }
     public void setNumeroVol(String numeroVol) { this.numeroVol = numeroVol; }
 
@@ -117,7 +118,7 @@ public class Vol {
     public Pilote getPilote() { return pilote; }
     public void setPilote(Pilote pilote) { this.pilote = pilote; }
 
-    public List<PersonnelCabine> getEquipeCabine() { return new ArrayList<>(equipeCabine); }
+    public List<PersonnelCabine> getEquipeCabine() { return new ArrayList<>(PersonnelCabine); }
 
     public Avion getAvion() { return avion; }
     public void setAvion(Avion avion) { this.avion = avion; }
@@ -130,3 +131,4 @@ public class Vol {
     public Aeroport getAeroportArrivee() { return aeroportArrivee; }
     public void setAeroportArrivee(Aeroport aeroportArrivee) { this.aeroportArrivee = aeroportArrivee; }
 }
+
