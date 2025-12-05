@@ -1,5 +1,6 @@
 package org.example;
 
+//Création de la table Personne
 public abstract class Personne {
     private String identifiant;
     private String nom;
@@ -14,10 +15,10 @@ public abstract class Personne {
     }
 
     public String obtenirInfos() {
-        return "ID: " + identifiant + ", Nom: " + nom + ", Adresse: " + adresse + ", Contact: " + contact;
+        return "Identifiant: " + identifiant + ", Nom: " + nom + ", Adresse: " + adresse + ", Contact: " + contact;
     }
 
-    // Getters et setters
+    // Methode d'accès
     public String getIdentifiant() { return identifiant; }
     public void setIdentifiant(String identifiant) { this.identifiant = identifiant; }
 
