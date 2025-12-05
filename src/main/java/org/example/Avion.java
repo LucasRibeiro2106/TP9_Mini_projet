@@ -3,11 +3,12 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+//Création de la classe Avion
 public class Avion {
     private String immatriculation;
     private String modele;
     private int capacite;
-    private List<Vol> volsAffectes;
+    private List<Vol> volsAffectes;  //Pour l'association avec la classe Vol
 
     public Avion(String immatriculation, String modele, int capacite) {
         this.immatriculation = immatriculation;
@@ -33,13 +34,13 @@ public class Avion {
         return true;
     }
 
-    // CRUD
+    // Méthodes CRUD
     public void modifierAvion(String modele, int capacite) {
         this.modele = modele;
         this.capacite = capacite;
     }
 
-    // Getters / setters
+    // Méthode d'accès
     public String getImmatriculation() { return immatriculation; }
     public void setImmatriculation(String immatriculation) { this.immatriculation = immatriculation; }
 
@@ -51,3 +52,5 @@ public class Avion {
 
     public List<Vol> getVolsAffectes() { return new ArrayList<>(volsAffectes); }
 }
+
+
